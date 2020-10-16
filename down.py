@@ -9,8 +9,8 @@ else:
 
 def downloader(update,context,url):
     chat_id = update.message.chat.id
-	if msg.startswith('https://vm.tiktok.com') or msg.startswith('https://m.tiktok.com'):
-		cmd = [
+    if msg.startswith('https://vm.tiktok.com') or msg.startswith('https://m.tiktok.com'):
+        cmd = [
             "youtube-dl",
             "--no-warnings",
             "j",url]
