@@ -1,2 +1,0 @@
-youtube-dl
-python-telegram-bot
