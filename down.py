@@ -51,4 +51,6 @@ def downloader(update,context,url):
 
 
             return nload(update,context,Config.DOWNLOAD_LOCATION+"/"+filename,caption)
+        else:
+            update.message.reply_text("not url")
 
