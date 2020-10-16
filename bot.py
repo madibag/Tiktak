@@ -13,7 +13,7 @@ def start(update,context):
     name = update.message.chat.first_name
     chat_id = update.message.chat_id
     context.bot.send_message(chat_id = chat_id,
-        text='Hello {} Welcome to My Tiktok\nVideo Downloading Bot For more Help\nSent \help \n<a href='https://t.me/nahom_d'>developer<a>'.format(name),
+        text="Hello {} Welcome to My Tiktok\nVideo Downloading Bot For more Help\nSent /\help \n<a href='https://t.me/nahom_d'>developer<a>".format(name),
         parse_mode = ParseMode.HTML, disable_web_page_preview=True
                             )
 def help(update,context):
