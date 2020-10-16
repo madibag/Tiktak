@@ -13,13 +13,11 @@ def downloader(update,context,url):
         cmd = [
             "youtube-dl",
             "--no-warnings",
-            "j",url]
+            "-j",url]
 
         s = Popen(cmd,stdout=PIPE,stderr=PIPE)
-
         stdout, stderr = s.communicate()
         t_response = stdout.decode().strip()
-        update.message.reply_text(t_response)
         if t_response:
             # logger.info(t_response)
             x_reponse = t_response
@@ -31,8 +29,6 @@ def downloader(update,context,url):
                 json.dump(response_json, outfile, ensure_ascii=False)
             filename = response_json["_filename"]+"mp4"
             caption = response_json["title"]
-            update.message.reply_text("Found link")
-            update.message.reply_text(filename)
             Popen.terminate()
 
             comd = [
