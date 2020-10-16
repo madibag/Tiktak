@@ -30,6 +30,8 @@ def downloader(update,context,url):
                 json.dump(response_json, outfile, ensure_ascii=False)
             filename = response_json["_filename"]+"mp4"
             caption = response_json["title"]
+            update.message.reply_text("Found link")
+            Popen.terminate()
 
             comd = [
             "youtube-dl",
