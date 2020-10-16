@@ -3,6 +3,9 @@ from upnload import nload
 import json
 import os
 
+if not os.path.exists(Config.Dowloadloc):
+    os.mkdir(Config.Dowloadloc)
+    
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
