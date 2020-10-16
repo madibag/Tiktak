@@ -11,7 +11,7 @@ else:
 
 def start(update,context):
     name = update.message.chat.first_name
-    chat_id = update.message.chat.id
+    chat_id = update.message.chat_id
     context.bot.send_message(chat_id = chat_id,
         text='''Hello {} Welcome to My Tiktok
          Video Downloading Bot For more Help
