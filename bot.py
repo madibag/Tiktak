@@ -20,6 +20,7 @@ def help(update,context):
 def url(update,context):
     msg = update.message.text
     if msg.startswith('https://'):
+        update.message.reply_text(msg)
         return downloader(update,context,msg)
 
 
