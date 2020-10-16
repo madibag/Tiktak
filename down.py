@@ -8,7 +8,7 @@ else:
     from config import Config
 
 def downloader(update,context,url):
-    chat_id = update.message.chat.id
+    chat_id = update.message.chat_id
     if url.startswith('https://vm.tiktok.com') or url.startswith('https://m.tiktok.com'):
         cmd = [
             "youtube-dl",
