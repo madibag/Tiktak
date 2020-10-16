@@ -1,4 +1,4 @@
-from subprocess import PIPE,call
+from subprocess import PIPE,Popen
 from upnload import nload
 import os
 
@@ -15,7 +15,7 @@ def downloader(update,context,url):
             "--no-warnings",
             "j",url]
 
-        s = call(cmd,stdout=PIPE,stderr=PIPE)
+        s = Popen(cmd,stdout=PIPE,stderr=PIPE)
 
         stdout, stderr = s.communicate()
         t_response = stdout.decode().strip()
@@ -41,7 +41,7 @@ def downloader(update,context,url):
 
 
             try:
-                call(comd,stdout=PIPE,stderr=PIPE)
+                Popen(comd,stdout=PIPE,stderr=PIPE)
             except:
                 update.message.reply_text("An Error occured While Downloading")
 
