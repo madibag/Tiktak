@@ -1,29 +1,25 @@
 from subprocess import PIPE,Popen
 from upnload import nload
-import json
 import os
-    
+
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
     from config import Config
 
- 
-if not os.path.exists(Config.Dowloadloc):
-    os.mkdir(Config.Dowloadloc)   
-    
- 
 def downloader(update,context,url):
-    chat_id = update.message.chat_id
-    if url.startswith('https://vm.tiktok.com') or url.startswith('https://m.tiktok.com'):
+    chat_id = update.message.chat.id
+    if msg.startswith('https://vm.tiktok.com') or msg.startswith('https://m.tiktok.com'):
         cmd = [
             "youtube-dl",
             "--no-warnings",
-            "-j",url]
+            "j",url]
 
         s = Popen(cmd,stdout=PIPE,stderr=PIPE)
+
         stdout, stderr = s.communicate()
         t_response = stdout.decode().strip()
+        s.kill()
         if t_response:
             # logger.info(t_response)
             x_reponse = t_response
@@ -44,14 +40,13 @@ def downloader(update,context,url):
 
             os.remove(save_json_path)
 
-
-            try:
-                Popen(comd,stdout=PIPE,stderr=PIPE)
-            except:
+            j = Popen(comd,stdout=PIPE,stderr=PIPE)
+            if stdout or stderr:
+                j.kill()
+            if stderr:
                 update.message.reply_text("An Error occured While Downloading")
+                return
 
 
             return nload(update,context,Config.DOWNLOAD_LOCATION+"/"+filename,caption)
-        else:
-            update.message.reply_text("not url")
 
